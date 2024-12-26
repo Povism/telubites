@@ -1,0 +1,334 @@
+﻿<!-- Kelas: SI-48-INT  -->
+    <!-- Kelompok: 01  -->
+    <!--Anggota Kelompok: -->
+    <!-- 1. Maya Radina Putri (102022400015)  -->
+    <!-- 2. Nadila Naurah Rayyani Himawan (102022400145) -->
+    <!-- 3. Muhammad Fazshyerra Pradichwa Raksaragana (102022440006)-->
+    <!-- 4. Muhammad Mumtaz (102022400299) -->
+    <!-- 5. Naufal Ghazika Fadhlurahman (102022440016)-->
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UBites Menu Page</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f8e9d1;
+                color: #333;
+            }
+    
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 2rem;
+            }
+    
+            .header-logo img {
+                width: 100px;
+            }
+    
+            .search-bar {
+                flex-grow: 1;
+                margin: 0 2rem;
+            }
+    
+            .search-bar input {
+                width: 100%;
+                padding: 0.5rem 1rem;
+                border: 1px solid #ddd;
+                border-radius: 30px;
+                outline: none;
+            }
+    
+            .profile img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+    
+            nav {
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                margin-top: -40px;
+            }
+    
+            .nav-tab {
+                padding: 10px 20px;
+                margin: 0 10px;
+                color: black;
+                cursor: pointer;
+                font-size: 18px;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+    
+            .nav-tab .active{
+                border-bottom: 3px solid #d32f2f;
+            }
+    
+            .menu-items {
+                display: grid;
+                margin-top: 20px;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+                justify-items: center;
+            }
+    
+            .menu-card {
+                text-align: center;
+                background-color: #fff;
+                border-radius: 10px;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                width: 120px;
+            }
+    
+            .menu-card img {
+                width: 100%;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 0.5rem;
+            }
+    
+            .menu-card p {
+                margin: 0.5rem 0;
+            }
+    
+            .menu-card .price {
+                color: red;
+                font-weight: bold;
+            }
+    
+            .pagination {
+                text-align: center;
+                margin: 20px 0;
+                font-size: 20px;
+            }
+    
+    
+            .footer img {
+                width: 25px;
+                height: 25px;
+            }
+    
+            .footer p {
+                margin: 0;
+                font-size: 0.9rem;
+            }
+    
+            .footer div {
+                text-align: center;
+            }
+
+            .menu-container {
+        padding-bottom: 80px; /* Add space for the fixed footer */
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        border-top: 1px solid #ddd;
+        padding: 1rem 0;
+        height: 40px; /* Specify footer height */
+    }
+
+    .actions {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .quantity-selector button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      background-color: #f8f8f8;
+      cursor: pointer;
+    }
+    .quantity-selector span {
+      font-size: 16px;
+    }
+    .add-to-cart {
+      background-color: red;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .item.active .actions {
+      display: flex;
+    }
+        </style>
+    </head>
+    <body>
+    
+            <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; ">
+                <img src="Images/Logo.png" alt="UBites Logo" style="width: 100px; margin-right: 1rem;">
+                <input id="search-bar" type="text" placeholder="Search Menu" style="width: 30%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 30px; margin-right: 1rem;">
+                <img src="Images/admin.jpg" alt="Profile" style="width: 40px; border-radius: 50%;">
+            </div>    
+    
+            <nav>
+                <div><a href="juice.html"id="tab-juice" class="nav-tab" onclick="changeTab('juice')">Juice</a></div>
+                <div><a href="milkshake.html"id="tab-milkshake" class="nav-tab" onclick="changeTab('milkshake')">Milkshake</a></div>
+                <div><a href="icecream.html"id="tab-ice-cream" class="nav-tab" onclick="changeTab('icecream')">Ice Cream</a></div>       
+            </nav>
+    
+        <div class="menu-container">
+                <div class="menu-items">
+                  <div class="item menu-card" onclick="showActions(this)">
+                    <img src="Images/StrawberryMilk.png" alt="Strawberry MilkShake">
+                    <p>Strawberry MilkShake</p>
+                    <p class="price">Rp. 23.000</p>
+                <div class="actions">
+                  <div class="quantity-selector">
+                    <button onclick="decreaseQuantity(event)">-</button>
+                    <span>1</span>
+                    <button onclick="increaseQuantity(event)">+</button>
+                  </div>
+                  <button class="add-to-cart" onclick="addToCart('Strawberry MilkShake', 'Rp. 23.000', 1)">Add to Cart</button>
+                </div>
+                </div>
+                <div class="item menu-card" onclick="showActions(this)">
+                    <img src="Images/ChocoMilk.png" alt="Chocolatte MilkShake">
+                    <p>Chocolatte MilkShakee</p>
+                    <p class="price">Rp. 23.000</p>
+                <div class="actions">
+                  <div class="quantity-selector">
+                    <button onclick="decreaseQuantity(event)">-</button>
+                    <span>1</span>
+                    <button onclick="increaseQuantity(event)">+</button>
+                  </div>
+                  <button class="add-to-cart" onclick="addToCart('Chocolatte MilkShake', 'Rp. 23.000', 1)">Add to Cart</button>
+                </div>
+                </div>
+                <div class="item menu-card" onclick="showActions(this)">
+                    <img src="Images/VanillaMilk.png" alt="Vanilla MilkShake">
+                    <p>Vanilla MilkShake</p>
+                    <p class="price">Rp. 23.000</p>
+                <div class="actions">
+                  <div class="quantity-selector">
+                    <button onclick="decreaseQuantity(event)">-</button>
+                    <span>1</span>
+                    <button onclick="increaseQuantity(event)">+</button>
+                  </div>
+                  <button class="add-to-cart" onclick="addToCart('Vanilla MilkShake', 'Rp. 23.000', 1)">Add to Cart</button>
+                </div>
+                </div>
+                <div class="item menu-card" onclick="showActions(this)">
+                    <img src="Images/MangoMilk.png" alt="Mango MilkShake">
+                    <p>Mango MilkShake</p>
+                    <p class="price">Rp. 23.000</p>
+                <div class="actions">
+                  <div class="quantity-selector">
+                    <button onclick="decreaseQuantity(event)">-</button>
+                    <span>1</span>
+                    <button onclick="increaseQuantity(event)">+</button>
+                  </div>
+                  <button class="add-to-cart" onclick="addToCart('Mango MilkShake', 'Rp. 23.000', 1)">Add to Cart</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div>
+                <a href="homepage.html">
+                    <img src="images/Home.png" alt="Gambar Button" style="width: 30px; height: 30px">
+                </a>
+                <p>Home</p>
+            </div> 
+            <div>
+                <a href="transactionhistory.html">
+                    <img src="images/Bag.png" alt="Gambar Button" style="width: 30px; height: 30px">
+                </a>
+                <p>History</p>
+            </div>
+            <div>
+                <a href="login.html">
+                    <img src="images/Logout2.png" alt="Gambar Button" style="width: 30px; height: 30px">
+                </a>
+                <p>Log Out</p>
+            </div> 
+        </div>
+        <script>
+             function addToCart(itemName, itemPrice, quantity) {
+            const cartUrl = `cart.html?item=${encodeURIComponent(itemName)}&price=${encodeURIComponent(itemPrice)}&quantity=${quantity}`;
+
+            window.location.href = cartUrl;
+        }
+
+        function increaseQuantity(event) {
+            event.preventDefault(); 
+            event.stopPropagation();
+            const quantitySpan = event.target.previousElementSibling;
+            let quantity = parseInt(quantitySpan.textContent);
+            quantity++;
+            quantitySpan.textContent = quantity;
+        }
+
+        function decreaseQuantity(event) {
+            event.preventDefault(); 
+            event.stopPropagation();
+            const quantitySpan = event.target.nextElementSibling;
+            let quantity = parseInt(quantitySpan.textContent);
+            if (quantity > 1) {
+                quantity--;
+                quantitySpan.textContent = quantity;
+            }
+        }
+
+        function showActions(item) {
+            document.querySelectorAll('.item').forEach(el => el.classList.remove('active'));
+            item.classList.add('active');
+        }
+
+            function filterMenu() {
+                const searchInput = document.getElementById('search-bar').value.toLowerCase(); 
+                const menuContainer = document.querySelector('.menu-container'); 
+                const menuCards = document.querySelectorAll('.menu-card'); 
+                let hasVisibleCard = false; 
+
+                menuCards.forEach(card => {
+                    const menuName = card.querySelector('p').textContent.toLowerCase(); 
+                    if (menuName.includes(searchInput)) {
+                        card.style.display = 'block';
+                        hasVisibleCard = true; 
+                    } else {
+                        card.style.display = 'none'; 
+                    }
+                });
+
+                if (hasVisibleCard) {
+                    menuContainer.style.display = 'grid'; 
+                } else {
+                    menuContainer.style.display = 'none';
+                }
+            }
+
+            document.getElementById('search-bar').addEventListener('input', filterMenu);
+            </script>
+    </body>
+    </html>

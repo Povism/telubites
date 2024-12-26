@@ -1,0 +1,213 @@
+﻿<!-- Kelas: SI-48-INT  -->
+    <!-- Kelompok: 01  -->
+    <!--Anggota Kelompok: -->
+    <!-- 1. Maya Radina Putri (102022400015)  -->
+    <!-- 2. Nadila Naurah Rayyani Himawan (102022400145) -->
+    <!-- 3. Muhammad Fazshyerra Pradichwa Raksaragana (102022440006)-->
+    <!-- 4. Muhammad Mumtaz (102022400299) -->
+    <!-- 5. Naufal Ghazika Fadhlurahman (102022440016)-->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Orders Data</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f7e9cd;
+            }
+    
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 2rem;
+            }
+    
+            .header-logo img {
+                width: 100px;
+            }
+    
+            .search-bar {
+                flex-grow: 1;
+                margin: 0 2rem;
+            }
+    
+            .search-bar input {
+                width: 100%;
+                padding: 0.5rem 1rem;
+                border: 1px solid #ddd;
+                border-radius: 30px;
+                outline: none;
+            }
+    
+            .profile img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+    
+            .main {
+                padding: 20px;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background-color: #fff;
+            }
+    
+            th, td {
+                border: 1px solid #ccc;
+                padding: 10px;
+                text-align: left;
+            }
+    
+            th {
+                background-color: #f0f0f0;
+            }
+    
+            .status {
+                display: inline-block;
+                padding: 5px 10px;
+                color: #fff;
+                background-color: #28a745;
+                border-radius: 5px;
+                text-align: center;
+            }
+    
+            .footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                background-color: #fff;
+                padding: 10px 0;
+                box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            }
+    
+            .footer button {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: none;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+                color: #000;
+                font-size: 14px;
+            }
+    
+            .footer button:hover {
+                color: #007BFF;
+            }
+    
+            .footer button img {
+                height: 20px;
+            }
+    
+            .footer button:focus {
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div style="display: flex; align-items: center; justify-content: center; padding: 1rem;">
+            <img src="images/Logo.png" alt="UBites Logo" style="width: 120px; margin-right: 1rem;">
+            <input id="search-bar" type="text" placeholder="Search Order" style="width: 500px; padding: 0.5rem; border: 1px solid #ddd; border-radius: 30px; margin-right: 1rem;">
+            <img src="images/admin.jpg" alt="Profile" style="width: 50px; border-radius: 50%;">
+        </div>
+    
+        <div class="main">
+            <table id="order-table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Order Date</th>
+                        <th>Order Detail</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>102022400015</td>
+                        <td>Maya Radina Putri</td>
+                        <td>12-12-2024</td>
+                        <td>
+                            &bull; Nasi Goreng Seafood, Rp 23.000<br>
+                            &bull; Guava Juice, Rp 14.000
+                        </td>
+                        <td><span class="status">Terima</span></td>
+                    </tr>
+                    <tr>
+                        <td>102022400299</td>
+                        <td>Muhammad Mummtaz</td>
+                        <td>10-12-2024</td>
+                        <td>
+                            &bull; Soto Sapi dan Nasi, Rp 23.000<br>
+                            &bull; Soursoup Juice, Rp 14.000
+                        </td>
+                        <td><span class="status">Terima</span></td>
+                    </tr>
+                    <tr>
+                        <td>102022400145</td>
+                        <td>Nadila Naurah Rayyani Himawan</td>
+                        <td>08-12-2024</td>
+                        <td>
+                            &bull; Mie Hot Plate Beef Teriyaki, Rp 23.000<br>
+                            &bull; Snack Ice Cream, Rp 23.000
+                        </td>
+                        <td><span class="status">Terima</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="footer">
+            <button onclick="window.location.href='dashboard.html'">
+                <img src="images/Home.png" alt="Dashboard Icon">
+                <p>Dashboard</p>
+            </button>
+            <button onclick="window.location.href='items.html'">
+                <img src="images/Items.png" alt="Items Icon">
+                <p>Items</p>
+            </button>
+            <button onclick="window.location.href='orders.html'">
+                <img src="images/Cart.png" alt="Orders Icon">
+                <p>Orders</p>
+            </button>
+            <button onclick="window.location.href='analysis.html'">
+                <img src="images/analysis.png" alt="Analysis Icon">
+                <p>Analysis</p>
+            </button>
+        </div>
+    
+        <script>
+            document.getElementById('search-bar').addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                const rows = document.querySelectorAll('#order-table tbody tr');
+                
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    let found = false;
+    
+                    cells.forEach(cell => {
+                        if (cell.textContent.toLowerCase().includes(query)) {
+                            found = true;
+                        }
+                    });
+    
+                    row.style.display = found ? '' : 'none';
+                });
+            });
+        </script>
+    
+    </body>
+    </html>
+    
